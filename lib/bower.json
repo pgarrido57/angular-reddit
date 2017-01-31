@@ -1,0 +1,23 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/pgarrido57/angular-reddit",
+  "authors": [
+    "Peter Garrido <peter.garrido57@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "firebase": "^3.6.7",
+    "bootstrap": "^3.3.7"
+  }
+}

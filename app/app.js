@@ -1,16 +1,17 @@
-const app = angular.module('ng-reddit', ['ngRoute'])
+const app = angular.module('AnguReddit', ['ngRoute'])
 
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
 
-  var config = {
-    apiKey: "AIzaSyCxrBWmcvCmg_0dUfYCVcB6D_HbleEBDps",
-    authDomain: "reddit-3f73e.firebaseapp.com",
-    databaseURL: "https://reddit-3f73e.firebaseio.com",
-    storageBucket: "reddit-3f73e.appspot.com",
-    messagingSenderId: "989170010134"
-  };
-  firebase.initializeApp(config);
+  // Initialize Firebase
+  firebase.initializeApp({
+      apiKey: "AIzaSyCxrBWmcvCmg_0dUfYCVcB6D_HbleEBDps",
+      authDomain: "reddit-3f73e.firebaseapp.com",
+      databaseURL: "https://reddit-3f73e.firebaseio.com",
+      storageBucket: "reddit-3f73e.appspot.com",
+      messagingSenderId: "989170010134"
+  });
 
+  // this checks to make sure user is signed in
   const userStatus = {
       authState:function ($location){
           console.log("hey");
@@ -26,25 +27,29 @@ app.config(function($routeProvider) {
 
   $routeProvider
     .when('/', {
-      controller: 'postsCtrl',
-      templateUrl: 'partails/posts.html'
+      controller: 'loginCtrl',
+      templateUrl: '/app/partails/login.html'
+     })
+      .when('/register', {
+      controller: 'registerCtrl',
+      templateUrl: '/app/partails/register.html',
     })
-    .when('/new', {
-      controller: 'newPostCtrl',
-      templateUrl: 'partails/new.html'
+      .when('/news', {
+      controller : 'newsCtrl',
+      templateUrl : '/app/partails/new.html',
+      resolve : userStatus
     })
-    .when('/posts/:postId', {
+      .when('/post', {
       controller: 'postCtrl',
-      templateUrl: 'partails/post.html'
+      templateUrl: '/app/partials/post.html',
+      resolve : userStatus
     })
-    .otherwise({
-      redirectTo: '/'
-    });
+      .when('/posts', {
+      controller: 'postsCtrl',
+      templateUrl: '/app/partials/posts.html',
 
-});
-
-app.filter('fromNow', function() {
-  return function(date) {
-    return moment(date).fromNow();
-  }
-});
+    })
+    .otherwise ({
+        redirectTo: '/'
+    })
+})

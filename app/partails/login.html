@@ -1,0 +1,18 @@
+
+<body>
+
+<div class="login">
+  <div class="title">Login</div>
+  <form ng-submit="login()" enctype="application/x-www-form-urlencoded">
+      <input ng-model="user.email" type="text" required title="Email required" placeholder="Email" data-icon="U">
+        <input ng-model="user.password" type="password" required title="Password required" placeholder="Password" data-icon="x">
+        <div class="Register">
+          <div class="col">
+          <a href="#!/register" title="Register">Register</a>
+          </div>
+        </div>
+        <input class="Submit" type="submit">
+    </form>
+</div>
+
+</body>

@@ -4,42 +4,40 @@
   <head>
     <meta charset="UTF-8">
     <title>AnguReddit</title>
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="main.css">
   </head>
 
-  <body ng-app="ng-reddit">
+  <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="LoginController">
-      <div class="container">
-        <a class="btn btn-default navbar-btn navbar-left" ng-href="#/">Front Page</a>
-        <a class="btn btn-default navbar-btn navbar-left" ng-href="#/new">Submit</a>
+    <div ng-app="AnguReddit">
 
-        <span class="navbar-text navbar-right" ng-if="currentUser">
-            Signed in as <a ng-href="https://google.com/{{currentUser.google.username}}" class="navbar-link" target="_blank">{{currentUser.google.username}}</a>
-            (<a ng-href="#/" ng-click="logout()" class="navbar-link">Logout</a>)
-        </span>
-        <a class="btn btn-default navbar-btn navbar-right" ng-if="!currentUser" ng-click="login()">Login with Google</a>
-      </div>
-    </nav>
 
-    <main ng-view></main>
+      <div ng-view></div>
 
+
+  </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 
     <script src="/lib/bower_components/angular/angular.min.js"></script>
     <script src="/lib/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/lib/bower_components/angular-material/angular-material.min.js"></script>
     <script src="/lib/bower_components/firebase/firebase.js"></script>
 
     <script src="/app/app.js"></script>
 
     <script src="/app/controllers/loginCtrl.js"></script>
-    <script src="/app/controllers/newPostsCtrl.js"></script>
+    <script src="/app/controllers/registerCtrl.js"></script>
+    <script src="/app/controllers/newsCtrl.js"></script>
     <script src="/app/controllers/postCtrl.js"></script>
     <script src="/app/controllers/postsCtrl.js"></script>
 
-    <script src="/app/factories/authFactory.js"></script>
-    <script src="/app/factories/firebaseFactory.js"></script>
-    <script src="/app/factories/setUserFactory.js"></script>
+    <script src="/factories/authFactory.js"></script>
+    <script src="/factories/firebaseFactory.js"></script>
+    <script src="/factories/setUserFactory.js"></script>
 
   </body>
 

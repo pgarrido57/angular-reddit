@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>AnguReddit</title>
-</head>
-<body>
 
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>AnguReddit</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
+
+  <body ng-app="ng-reddit">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="LoginController">
+      <div class="container">
+        <a class="btn btn-default navbar-btn navbar-left" ng-href="#/">Front Page</a>
+        <a class="btn btn-default navbar-btn navbar-left" ng-href="#/new">Submit</a>
+
+        <span class="navbar-text navbar-right" ng-if="currentUser">
+            Signed in as <a ng-href="https://google.com/{{currentUser.google.username}}" class="navbar-link" target="_blank">{{currentUser.google.username}}</a>
+            (<a ng-href="#/" ng-click="logout()" class="navbar-link">Logout</a>)
+        </span>
+        <a class="btn btn-default navbar-btn navbar-right" ng-if="!currentUser" ng-click="login()">Login with Google</a>
+      </div>
+    </nav>
+
+    <main ng-view></main>
+
+
+    <script src="/lib/bower_components/angular/angular.min.js"></script>
+    <script src="/lib/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/lib/bower_components/firebase/firebase.js"></script>
+    <script src="/app/app.js"></script>
+  </body>
+
 </html>

@@ -289,10 +289,24 @@ label {
     color: #FA1E1E;
 }
 
-strong {
-    color: #FA1E1E;
-}
 
 .toggleNewCommentVisibility() {
     color: #FA1E1E;
+}
+
+input.btn-danger {
+    background: #FA1E1E;
+    border: #1e1e1e;
+    margin-left: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #1e1e1e;
+}
+
+md-button.btn-danger {
+    background: #FA1E1E;
+    margin-top: 14px;
+    margin-left: 40px;
+    color: #1e1e1e;
+
 }

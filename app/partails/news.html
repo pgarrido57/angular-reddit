@@ -12,7 +12,7 @@
           </div>
         </li>
       </ul>
-      <md-button class="mdi mdi-plus-circle" ng-click="logout()" name="logout"><strong>Logout</strong></md-button>
+      <md-button class="btn btn-danger" ng-click="logout()" name="logout"><strong>Logout</strong></md-button>
     </div>
   </nav>
 
@@ -47,7 +47,7 @@
         <input type="text" class="form-control" name="description" placeholder="Description" ng-model="newPost.description" required>
         <p ng-show="checkForError(postForm.description)" class="help-block">Add a description for your post!</p>
       </div>
-      <input type="submit" class="btn btn-default" value="Add Post">
+      <input type="submit" class="btn btn-danger" value="Add Post">
     </form>
 
     <!-- Posts -->
@@ -78,6 +78,8 @@
               <strong>{{ comment.author }}</strong> - {{ comment.text }}
             </p>
           </div>
+
+          <!-- Comments -->
           <div class="comment" ng-show="post.newCommentVisible">
             <form class="form-inline" ng-submit="addComment(post, newComment)">
               <div class="form-group">
@@ -88,7 +90,7 @@
                 <label for="text">Text</label>
                 <input type="text" placeholder="text" class="form-control" ng-model="newComment.text">
               </div>
-              <input class="btn btn-success" type="submit" value="Add Comment">
+              <input class="btn btn-danger" type="submit" value="Add Comment">
             </form>
           </div>
         </div>

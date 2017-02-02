@@ -1,0 +1,98 @@
+<body ng-controller="newsCtrl">
+
+    <!--nav bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <img class="search-logo" src="http://i.imgur.com/x6VCH0y.gif">
+        <li><a ng-click="toggleNewPostVisibility()"><span class="glyphicon glyphicon-plus"></span> Add Post</a></li>
+        <li class="navbar-form">
+          <div class="form-inline">
+            <input type="text" placeholder="search posts" class="form-control" ng-model="view.searchPosts">
+          </div>
+        </li>
+      </ul>
+      <md-button class="mdi mdi-plus-circle" ng-click="logout()" name="logout"><strong>Logout</strong></md-button>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <form id="postForm" name="postForm" ng-submit="addPost(newPost)" ng-show="view.newPostVisible" class="newForm">
+
+      <div class="form-group" ng-class="{'has-error': checkForError(postForm.title), 'has-success': postForm.title.$valid }">
+        <label for="title" ng-class="{'text-danger': checkForError(postForm.title), 'text-success': postForm.title.$valid }">Title</label>
+
+        <input type="text" class="form-control" name="title" placeholder="Title" ng-model="newPost.title" required>
+        <p ng-show="checkForError(postForm.title)" class="help-block">Enter a title!</p>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error': checkForError(postForm.author), 'has-success': postForm.author.$valid }">
+        <label for="author" ng-class="{'text-danger': checkForError(postForm.author), 'text-success': postForm.author.$valid }">Author</label>
+
+        <input type="text" class="form-control" name="author" placeholder="Author" ng-model="newPost.author" required>
+        <p ng-show="checkForError(postForm.author)" class="help-block">Enter an author!</p>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error': checkForError(postForm.image), 'has-success': postForm.image.$valid }">
+        <label for="image" ng-class="{'text-danger': checkForError(postForm.image), 'text-success': postForm.image.$valid }">Image URL</label>
+
+        <input type="text" class="form-control" name="image" placeholder="Image URL" ng-model="newPost.image" required>
+        <p ng-show="checkForError(postForm.image)" class="help-block">Enter an image URL</p>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error': checkForError(postForm.description), 'has-success': postForm.description.$valid }">
+        <label for="description" ng-class="{'text-danger': checkForError(postForm.description), 'text-success': postForm.description.$valid }">Description</label>
+
+        <input type="text" class="form-control" name="description" placeholder="Description" ng-model="newPost.description" required>
+        <p ng-show="checkForError(postForm.description)" class="help-block">Add a description for your post!</p>
+      </div>
+      <input type="submit" class="btn btn-default" value="Add Post">
+    </form>
+
+
+    <div class="well" ng-repeat="post in view.posts | orderBy: view.orderVal | filter:view.searchPosts">
+      <div class="row">
+        <div class="col-xs-3"><img ng-src="{{ post.image }}"></div>
+        <div class="col-xs-9">
+          <h4>
+          {{ post.title }} |
+          <span class="glyphicon glyphicon-arrow-up" ng-click="changeVotes(post, 1)"></span>
+          <span class="glyphicon glyphicon-arrow-down" ng-click="changeVotes(post, -1)"></span>
+          <span ng-class="upvoteClass(post)">{{ post.votes }}</span>
+        </h4>
+          <p class="pull-right">By {{ post.author }}</p>
+          <p class="clear">{{ post.description }}</p>
+          <p>
+            <span class="glyphicon glyphicon-calendar"></span> {{ post.date }} |
+            <span class="hoverable" ng-click="toggleCommentVisibility(post)">
+            <span class="glyphicon glyphicon-comment"></span>
+            <ng-pluralize count="post.comments.length" when="{1: '1 comment', 'other': '{{ post.comments.length }} comments'}"></ng-pluralize>
+            </span> |
+            <span class="hoverable" ng-click="toggleNewCommentVisibility(post)">
+            <span class="glyphicon glyphicon-pencil"></span> Add comment
+            </span>
+          </p>
+          <div class="comment" ng-show="post.commentsVisible">
+            <p ng-repeat="comment in post.comments">
+              <strong>{{ comment.author }}</strong> - {{ comment.text }}
+            </p>
+          </div>
+          <div class="comment" ng-show="post.newCommentVisible">
+            <form class="form-inline" ng-submit="addComment(post, newComment)">
+              <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" placeholder="author" class="form-control" ng-model="newComment.author">
+              </div>
+              <div class="form-group">
+                <label for="text">Text</label>
+                <input type="text" placeholder="text" class="form-control" ng-model="newComment.text">
+              </div>
+              <input class="btn btn-success" type="submit" value="Add Comment">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

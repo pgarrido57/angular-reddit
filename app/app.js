@@ -1,4 +1,4 @@
-const app = angular.module('AnguReddit', ['ngRoute'])
+const app = angular.module('AnguReddit', ['ngRoute', 'ngAnimate'])
 
 app.config(function ($routeProvider) {
 
@@ -36,20 +36,10 @@ app.config(function ($routeProvider) {
     })
       .when('/news', {
       controller : 'newsCtrl',
-      templateUrl : '/app/partails/new.html',
+      templateUrl : '/app/partails/news.html',
       resolve : userStatus
     })
-      .when('/post', {
-      controller: 'postCtrl',
-      templateUrl: '/app/partials/post.html',
-      resolve : userStatus
-    })
-      .when('/posts', {
-      controller: 'postsCtrl',
-      templateUrl: '/app/partials/posts.html',
-
-    })
-    .otherwise ({
-        redirectTo: '/'
+      .otherwise ({
+      redirectTo: '/'
     })
 })

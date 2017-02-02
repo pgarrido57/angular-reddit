@@ -5,7 +5,7 @@ app.controller('registerCtrl', function($scope, authFactory, $location) {
 
         authFactory
           .register($scope.user)
-          .then(() => $location.url('/new'))
+          .then(() => $location.url('/news'))
     }
 
 })

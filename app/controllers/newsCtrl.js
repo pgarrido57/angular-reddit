@@ -102,12 +102,12 @@ app.controller('newsCtrl', function($scope, $q, $location) {
     }],
     commentsVisible: false,
     newCommentVisible: false
-  }, {}, {
+  }, {
     title: "You are my only hope!!!!",
     author: "Leia Organa",
     image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSErJeHG_g5ned9wHMxF4gMfR0N1NSPJW7KZrMzCtb0YSmmqZDU",
     description: "When you can't figure out why your code isnt working",
-    date: moment("20151010", "YYYYMMDD").calendar(),
+    date: moment().subtract(3, 'days').subtract(3, 'hours').calendar(),
     votes: 3,
     comments: [],
     commentsVisible: false,

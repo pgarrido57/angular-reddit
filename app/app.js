@@ -14,7 +14,7 @@ app.config(function ($routeProvider) {
   // this checks to make sure user is signed in
   const userStatus = {
       authState:function ($location){
-          console.log("hey");
+          console.log("welcome");
           const unsubscribe = firebase.auth().onAuthStateChanged(user =>{
               unsubscribe()
               console.log("userStatus", user);

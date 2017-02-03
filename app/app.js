@@ -1,4 +1,4 @@
-const app = angular.module('AnguReddit', ['ngRoute', 'ngAnimate'])
+const app = angular.module('AnguReddit', ['ngRoute', 'ngAnimate']);
 
 app.config(function ($routeProvider) {
 
@@ -16,14 +16,14 @@ app.config(function ($routeProvider) {
       authState:function ($location){
           console.log("welcome");
           const unsubscribe = firebase.auth().onAuthStateChanged(user =>{
-              unsubscribe()
+              unsubscribe();
               console.log("userStatus", user);
               if (!user){
-                  $location.url('/')
+                  $location.url('/');
               }
-          })
+          });
       }
-  }
+  };
 
   $routeProvider
     .when('/', {
@@ -41,5 +41,5 @@ app.config(function ($routeProvider) {
     })
       .otherwise ({
       redirectTo: '/'
-    })
-})
+    });
+});

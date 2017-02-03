@@ -16,7 +16,7 @@
     </div>
   </nav>
 
-    <!-- New Post -->
+  <!-- New Post -->
   <div class="container">
     <form id="postForm" name="postForm" ng-submit="addPost(newPost)" ng-show="view.newPostVisible" class="newForm">
 
@@ -53,7 +53,18 @@
     <!-- Posts -->
     <div class="well" ng-repeat="post in view.posts | orderBy: view.orderVal | filter:view.searchPosts">
       <div class="row">
-        <div class="col-xs-3"><img ng-src="{{ post.image }}"></div>
+        <div class="col-xs-3">
+          <a href="{{ post.image }}" data-toggle="modal" data-target="#myModal"><img ng-src="{{ post.image }}"></a>
+          <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <img src="//placehold.it/1000x600" class="img-responsive">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-xs-9">
           <h4>
           {{ post.title }} |

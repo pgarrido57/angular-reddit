@@ -25,7 +25,7 @@ header {
     border: #FA1E1E 1px solid;
     border-radius: 6px;
     margin: 50px auto;
-    box-shadow: 0px 0px 50px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, .8);
     margin-left: 180px;
     margin-top: 40px;
 }
@@ -120,15 +120,16 @@ header {
 }
 
 .login .Register .col a {
-  color: #FA1E1E;
-  text-decoration: none;
-  font: 12px Arial;
-  height : 1200px;
-  width : 99%;
-  background-color: #1e1e1e;
-  padding: 10px;
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+    color: #FA1E1E;
+    text-decoration: none;
+    font: 12px Arial;
+    height: 1200px;
+    width: 99%;
+    background-color: #1e1e1e;
+    padding: 10px;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
+
 
 /*news*/
 
@@ -148,7 +149,7 @@ div.well {
 }
 
 div.container-fluid {
-   background-color: #1e1e1e;
+    background-color: #1e1e1e;
     border-top: #FA1E1E 3px solid;
     border-bottom: #FA1E1E 3px solid;
     border-left: #FA1E1E 3px solid;
@@ -171,8 +172,8 @@ h4 {
     border-left: #FA1E1E 3px solid;
     border-right: #FA1E1E 3px solid;
     color: #FA1E1E;
-
 }
+
 .clear {
     clear: both;
 }
@@ -189,19 +190,15 @@ h4 {
     color: grey;
 }
 
-.glyphicon-arrow-up:hover,
-.glyphicon-arrow-down:hover,
-.hoverable:hover {
+.glyphicon-arrow-up:hover, .glyphicon-arrow-down:hover, .hoverable:hover {
     cursor: pointer;
 }
 
-.glyphicon-arrow-up:hover,
-.positive {
+.glyphicon-arrow-up:hover, .positive {
     color: green;
 }
 
-.glyphicon-arrow-down:hover,
-.negative {
+.glyphicon-arrow-down:hover, .negative {
     color: red;
 }
 
@@ -209,8 +206,7 @@ h4 {
     opacity: 1;
 }
 
-.comment.ng-hide-add,
-.comment.ng-hide-remove {
+.comment.ng-hide-add, .comment.ng-hide-remove {
     transition: 1s linear all;
 }
 
@@ -220,11 +216,9 @@ h4 {
 
 .newForm {
     margin-bottom: 15px;
-
 }
 
-.newForm.ng-hide-add,
-.newForm.ng-hide-remove {
+.newForm.ng-hide-add, .newForm.ng-hide-remove {
     transition: 0.4s linear all;
     transform: translateX(0);
 }
@@ -257,8 +251,7 @@ h4 {
     transform: translateX(100%);
 }
 
-.well.ng-enter-stagger,
-.well.ng-leave-stagger {
+.well.ng-enter-stagger, .well.ng-leave-stagger {
     transition-delay: 0.5s;
     transition-duration: 0;
 }
@@ -289,7 +282,6 @@ label {
     color: #FA1E1E;
 }
 
-
 .toggleNewCommentVisibility() {
     color: #FA1E1E;
 }
@@ -308,5 +300,7 @@ md-button.btn-danger {
     margin-top: 14px;
     margin-left: 40px;
     color: #1e1e1e;
-
 }
+
+
+/*Modal*/
